@@ -1,0 +1,12 @@
+<?php
+$this->extend('Layout/Default');
+?>
+<?php $this->beginBlock('title'); ?>500 - Server error<?php $this->endBlock(); ?>
+<?php $this->beginBlock('content'); ?>
+<h1>500 - Server error</h1>
+<p>
+<p><?= $this->encode($exception->getMessage()) ?></p>
+<p>in file <?= $this->encode($exception->getFile()) ?></p>
+<p>on line <?= $this->encode($exception->getLine()) ?></p>
+</p>
+<?php $this->endBlock(); ?>
