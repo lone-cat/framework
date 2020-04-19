@@ -1,0 +1,41 @@
+{
+  "name": "lonecat/framework",
+  "description": "Super light and simple PSR web framework",
+  "minimum-stability": "stable",
+  "license": "AGPL-3.0-only",
+  "authors": [
+    {
+      "name": "Lone Cat",
+      "email": "mail@lone-cat.dev"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "LoneCat\\Framework\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/",
+      "": ""
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "require": {
+    "php": ">=7.4",
+    "lonecat/psr7": "*",
+    "lonecat/psr11": "*",
+    "lonecat/psr15": "*",
+    "lonecat/router": "*",
+    "ext-mbstring": "*",
+    "psr/http-factory": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*"
+  },
+  "scripts": {
+    "test": "phpunit --colors=always"
+  }
+}
