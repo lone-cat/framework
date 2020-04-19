@@ -1,2 +1,2 @@
 # framework
-Super light and simple PSR web framework
+super light and simple PSR web framework
