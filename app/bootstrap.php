@@ -1,28 +1,32 @@
 <?php
 
-use app\HTTP\Controllers\PageNotFoundController;
-use app\HTTP\Middleware\Auth;
 use LoneCat\Framework\HTTP\Application;
+use LoneCat\Framework\HTTP\Bootstrap;
 use LoneCat\PSR11\Container;
-use LoneCat\PSR15\Pipeline;
-use LoneCat\PSR7\HTTP\Messages\ServerRequest;
+use Psr\Http\Message\ServerRequestFactoryInterface;
 
+// Require path setup
 $root_path = dirname(__DIR__);
 chdir($root_path);
 set_include_path($root_path);
 
+// Autoloader
 require 'vendor/autoload.php';
 
+Bootstrap::initFunctions();
+
+// Container initialization
 $container = Container::instance();
-
-$app = new Application($container->get(PageNotFoundController::class));
-$app->setContainer($container);
-
-$container->set(Application::class, $app);
-
+Bootstrap::initContainer($container);
 require 'config/Container.php';
 
-$request = $container->get(ServerRequest::class);
+$app = $container->get(Application::class);
 
-$pipeline = $container->get(Pipeline::class);
-$pipeline->middleware(Auth::class);
+// Middleware initialization
+require 'config/Middleware.php';
+
+// Routes initialization
+require 'config/Routes.php';
+
+// Server request generation
+$request = $container->get(ServerRequestFactoryInterface::class)->generateServerRequestFromGlobals();

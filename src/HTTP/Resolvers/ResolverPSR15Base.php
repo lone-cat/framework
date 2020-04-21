@@ -125,6 +125,11 @@ abstract class ResolverPSR15Base
         return $callable;
     }
 
-
+    protected function stringifyHandlerId($handler_id) {
+        if (is_array($handler_id)) {
+            $handler_id = \json_encode($handler_id, \JSON_UNESCAPED_UNICODE);
+        }
+        return $handler_id;
+    }
 
 }

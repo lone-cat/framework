@@ -12,12 +12,12 @@ class DefaultController
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        return $this->renderResponse('App/Login');
+        return $this->renderResponse('App/Main');
     }
 
-    public function test(ServerRequestInterface $request): ResponseInterface
+    public function page2(ServerRequestInterface $request): ResponseInterface
     {
-        return $this->renderResponse('App/Main');
+        return $this->renderResponse('App/Page2');
     }
 
 }

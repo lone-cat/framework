@@ -5,6 +5,7 @@ namespace LoneCat\Framework\HTTP\Resolvers;
 use LoneCat\Framework\HTTP\Controllers\Controller;
 use LoneCat\Framework\TemplateEngine\Renderer;
 use LoneCat\Router\RequestHandlerResolverInterface;
+use Psr\Http\Server\RequestHandlerInterface;
 
 class ControllerResolver
     extends ResolverPSR15Base
@@ -14,9 +15,13 @@ class ControllerResolver
     protected const IMITATION_CLASS = ControllerImitation::class;
     protected const IMITATION_METHOD = 'handle';
 
-    public function resolve($controller_id): Controller
+    public function resolve($controller_id): RequestHandlerInterface
     {
-        return $this->getResolvedResultOrNull($controller_id);
+        $controller = $this->getResolvedResultOrNull($controller_id);
+        if (!$controller instanceof RequestHandlerInterface) {
+            throw new \Exception('Controller "' . $this->stringifyHandlerId($controller_id) . '" could not be resolved!');
+        }
+        return $controller;
     }
 
     protected function createImitationFromCallable(callable $callable): Controller {

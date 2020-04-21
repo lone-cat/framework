@@ -24,6 +24,10 @@ class Renderer
         $templateFile = $this->path . '/' . $name . '.phtml';
         $this->extend = null;
 
+        if (!file_exists($templateFile)) {
+            throw new \Exception('Template "' . $templateFile . '" not found.');
+        }
+
         try {
             ob_start();
             extract($params, EXTR_OVERWRITE);

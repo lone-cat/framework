@@ -28,8 +28,6 @@ class Application
 
     public function setContainer(ContainerInterface $container) {
         $this->container = $container;
-        require dirname(__DIR__) . '/Config/Container.php';
-        require __DIR__ . '/Config/Container.php';
     }
 
     public function run(ServerRequestInterface $request): void

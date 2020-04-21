@@ -16,7 +16,11 @@ class MiddlewareResolver
 
     public function resolve($middleware_id): MiddlewareInterface
     {
-        return $this->getResolvedResultOrNull($middleware_id);
+        $middleware = $this->getResolvedResultOrNull($middleware_id);
+        if (!$middleware instanceof MiddlewareInterface) {
+            throw new \Exception('Middleware "' . $this->stringifyHandlerId($middleware_id) . '" could not be resolved!');
+        }
+        return $middleware;
     }
 
     protected function createImitationFromCallable(callable $callable): Middleware {
