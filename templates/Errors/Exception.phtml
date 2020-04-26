@@ -1,11 +1,11 @@
 <?php
-$this->extend('Layout/Default');
+self::extend('Layout/Default');
 ?>
-<?php $this->beginBlock('content'); ?>
+<?php Block::start('content'); ?>
 <h1>500 - Server error</h1>
 <p>
-<p><?= $this->encode($exception->getMessage()) ?></p>
-<p>in file <?= $this->encode($exception->getFile()) ?></p>
-<p>on line <?= $this->encode($exception->getLine()) ?></p>
+<p><?= $exception->getMessage() ?></p>
+<p>in file <?= $exception->getFile() ?></p>
+<p>on line <?= $exception->getLine() ?></p>
 </p>
-<?php $this->endBlock(); ?>
+<?php Block::end(); ?>

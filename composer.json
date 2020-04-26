@@ -29,6 +29,7 @@
     "lonecat/psr11": "*",
     "lonecat/psr15": "*",
     "lonecat/router": "*",
+    "lonecat/template-engine": "*",
     "ext-mbstring": "*",
     "psr/http-factory": "*"
   },

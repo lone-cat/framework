@@ -4,7 +4,7 @@ namespace LoneCat\Framework\HTTP\Controllers;
 
 use LoneCat\Framework\Factories\StreamFactory;
 use LoneCat\Framework\HTTP\Factories\ResponseFactory;
-use LoneCat\Framework\TemplateEngine\Renderer;
+use LoneCat\TemplateEngine\Renderer;
 use LoneCat\PSR11\ContainerAware\ContainerAwareTrait;
 use LoneCat\PSR11\ContainerAware\ContanerAwareInterface;
 use Psr\Http\Message\ResponseFactoryInterface;

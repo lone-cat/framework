@@ -2,6 +2,7 @@
 
 namespace LoneCat\Framework\HTTP;
 
+use LoneCat\Framework\HTTP\Controllers\NotFoundControllerInterface;
 use LoneCat\Framework\HTTP\Middleware\ExceptionMiddleware;
 use LoneCat\Framework\HTTP\Middleware\RouteFollowMiddleware;
 use LoneCat\Framework\HTTP\Middleware\RouteMatchMiddleware;
@@ -21,7 +22,7 @@ class Application
 
     protected RequestHandlerInterface $not_found_handler;
 
-    public function __construct(RequestHandlerInterface $not_found_handler)
+    public function __construct(NotFoundControllerInterface $not_found_handler)
     {
         $this->not_found_handler = $not_found_handler;
     }

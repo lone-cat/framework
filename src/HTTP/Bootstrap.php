@@ -2,15 +2,19 @@
 
 namespace LoneCat\Framework\HTTP;
 
+use LoneCat\Framework\Exceptions\ExceptionManager;
+use Psr\Container\ContainerInterface;
+
 abstract class Bootstrap
 {
-    public static function initContainer(\Psr\Container\ContainerInterface $container) {
+    public static function init(ContainerInterface $container) {
+        ExceptionManager::init();
+
         require dirname(__DIR__) . '/Config/Container.php';
         require __DIR__ . '/Config/Container.php';
-    }
 
-    public static function initFunctions() {
         require dirname(__DIR__) . '/Services/functions.php';
     }
+
 
 }

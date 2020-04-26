@@ -2,8 +2,9 @@
 
 namespace LoneCat\Framework\HTTP\Resolvers;
 
+use LoneCat\Framework\Exceptions\FrameworkException;
 use LoneCat\Framework\HTTP\Controllers\Controller;
-use LoneCat\Framework\TemplateEngine\Renderer;
+use LoneCat\TemplateEngine\Renderer;
 use LoneCat\Router\RequestHandlerResolverInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
@@ -19,7 +20,7 @@ class ControllerResolver
     {
         $controller = $this->getResolvedResultOrNull($controller_id);
         if (!$controller instanceof RequestHandlerInterface) {
-            throw new \Exception('Controller "' . $this->stringifyHandlerId($controller_id) . '" could not be resolved!');
+            throw new FrameworkException('Controller "' . $this->stringifyHandlerId($controller_id) . '" could not be resolved!');
         }
         return $controller;
     }

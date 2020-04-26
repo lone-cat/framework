@@ -2,6 +2,7 @@
 
 namespace LoneCat\Framework\HTTP\Resolvers;
 
+use LoneCat\Framework\Exceptions\FrameworkException;
 use LoneCat\Framework\HTTP\Middleware\Middleware;
 use LoneCat\PSR15\MiddlewareResolverInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -18,7 +19,7 @@ class MiddlewareResolver
     {
         $middleware = $this->getResolvedResultOrNull($middleware_id);
         if (!$middleware instanceof MiddlewareInterface) {
-            throw new \Exception('Middleware "' . $this->stringifyHandlerId($middleware_id) . '" could not be resolved!');
+            throw new FrameworkException('Middleware "' . $this->stringifyHandlerId($middleware_id) . '" could not be resolved!');
         }
         return $middleware;
     }

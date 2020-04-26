@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="ru" class="h-100">
     <head>
-        <?= $this->render('Layout/Head') ?>
+        <?= Template::render('Layout/Head') ?>
     </head>
     <body>
         <header>
-            <?= $this->render('Layout/Header') ?>
+            <?= Template::render('Layout/Header') ?>
         </header>
         <main>
-            <?= $this->renderBlock('content') ?>
+            <?= Block::get('content') ?>
         </main>
         <footer>
-            <?= $this->render('Layout/Footer') ?>
+            <?= Template::render('Layout/Footer') ?>
         </footer>
     </body>
 </html>

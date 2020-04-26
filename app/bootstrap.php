@@ -13,11 +13,11 @@ set_include_path($root_path);
 // Autoloader
 require 'vendor/autoload.php';
 
-Bootstrap::initFunctions();
-
 // Container initialization
 $container = Container::instance();
-Bootstrap::initContainer($container);
+
+Bootstrap::init($container);
+
 require 'config/Container.php';
 
 $app = $container->get(Application::class);

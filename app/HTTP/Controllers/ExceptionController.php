@@ -14,7 +14,8 @@ class ExceptionController
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         $exception = $request->getAttribute(\Exception::class);
+        $display = (bool)(ini_get('display_errors') === '1');
 
-        return $this->renderResponse('Errors/Exception', ['exception' => $exception], 500);
+        return $this->renderResponse('Errors/Exception', ['exception' => $exception, 'display' => $display], 500);
     }
 }

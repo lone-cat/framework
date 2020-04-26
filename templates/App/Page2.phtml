@@ -1,7 +1,7 @@
 <?php
-$this->extend('Layout/Default');
+self::extend('Layout/Default');
 ?>
-<?php $this->beginBlock('content'); ?>
+<?php Block::start('content'); ?>
     <h1>Page2</h1>
 <?= route('page2') ?>
-<?php $this->endBlock(); ?>
+<?php Block::end(); ?>

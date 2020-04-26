@@ -1,6 +1,15 @@
 <?php
-$this->extend('Layout/Default');
+self::extend('Layout/Default');
 ?>
-<?php $this->beginBlock('content'); ?>
+<?php Block::start('content'); ?>
+1
+<?php Block::start('content2'); ?>
+2
+<?php Block::start('content3'); ?>
+3
     <h1>Main page!</h1>
-<?php $this->endBlock(); ?>
+<?php Block::end();
+Block::end();
+Block::end();
+echo Block::get('content2');
+?>

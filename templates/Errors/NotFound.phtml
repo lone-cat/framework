@@ -1,7 +1,7 @@
 <?php
-$this->extend('Layout/Default');
+self::extend('Layout/Default');
 ?>
-<?php $this->beginBlock('content'); ?>
+<?php Block::start('content'); ?>
 <h1>404 - Not found</h1>
 <a href="/">Вернуться на главную...</a>
-<?php $this->endBlock(); ?>
+<?php Block::end(); ?>
